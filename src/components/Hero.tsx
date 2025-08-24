@@ -7,8 +7,12 @@ const Hero = () => {
       className="min-h-screen relative flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      {/* Animated dark overlay */}
-      <div className="absolute inset-0 bg-black/75 animate-fade-in"></div>
+      {/* Premium gradient overlay with depth */}
+      <div className="absolute inset-0 bg-gradient-hero animate-fade-in"></div>
+      
+      {/* Additional atmospheric layers */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 opacity-80"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-accent-red/10 via-transparent to-accent-red/5"></div>
       
       {/* Floating particles effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -31,7 +35,7 @@ const Hero = () => {
         <Button 
           variant="destructive"
           size="lg"
-          className="bg-accent-red hover:bg-accent-red/90 text-foreground font-bold px-16 py-6 text-xl tracking-wide shadow-red transition-all duration-500 hover:scale-105 animate-pulse-glow hover-lift group"
+          className="bg-gradient-premium hover:bg-gradient-red text-foreground font-bold px-16 py-6 text-xl tracking-wide shadow-premium transition-all duration-500 hover:scale-105 animate-pulse-glow hover-lift group premium-border glow-red hover:glow-red"
           onClick={() => window.location.href = '/shop'}
           style={{ animationDelay: '0.6s' }}
         >

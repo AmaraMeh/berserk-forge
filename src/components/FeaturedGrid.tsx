@@ -5,12 +5,16 @@ const FeaturedGrid = () => {
   const featuredProducts = mockProducts.slice(0, 4);
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-red rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent-red rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-dark relative overflow-hidden">
+      {/* Premium atmospheric background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-accent-red via-accent-red/50 to-transparent rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gradient-radial from-accent-red/80 via-accent-red/30 to-transparent rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-gradient-radial from-accent-red/40 to-transparent rounded-full blur-2xl animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
+      
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-accent-red/5 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20 animate-fade-in-up">
@@ -20,7 +24,7 @@ const FeaturedGrid = () => {
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
             Discover our most coveted pieces, forged in darkness and refined through struggle.
           </p>
-          <div className="w-24 h-1 bg-accent-red mx-auto mt-8 animate-scale-in"></div>
+          <div className="w-24 h-1 bg-gradient-premium mx-auto mt-8 animate-scale-in shadow-red rounded-full"></div>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

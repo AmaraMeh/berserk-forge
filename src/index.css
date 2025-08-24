@@ -41,16 +41,25 @@
 
     --radius: 0.5rem;
 
-    /* Custom gradients */
-    --gradient-dark: linear-gradient(135deg, hsl(0 0% 5%), hsl(0 0% 15%));
-    --gradient-red: linear-gradient(135deg, hsl(0 100% 27%), hsl(0 80% 35%));
+    /* Premium gradients */
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 2%), hsl(0 0% 8%), hsl(0 0% 15%));
+    --gradient-red: linear-gradient(135deg, hsl(0 100% 20%), hsl(0 90% 30%), hsl(0 100% 40%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.9), hsl(0 100% 5% / 0.8), hsl(0 0% 0% / 0.95));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 8% / 0.9), hsl(0 0% 15% / 0.7), hsl(0 0% 5% / 0.95));
+    --gradient-premium: linear-gradient(135deg, hsl(0 100% 15%), hsl(0 90% 25%), hsl(0 100% 35%), hsl(0 80% 45%));
+    --gradient-glass: linear-gradient(145deg, hsl(0 0% 20% / 0.1), hsl(0 0% 30% / 0.05), hsl(0 100% 30% / 0.1));
+    --gradient-border: linear-gradient(90deg, transparent, hsl(0 100% 27% / 0.5), transparent);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* Shadows */
-    --shadow-dark: 0 10px 30px -10px hsl(0 0% 0% / 0.8);
-    --shadow-red: 0 0 30px hsl(0 100% 27% / 0.3);
+    /* Premium shadows & effects */
+    --shadow-dark: 0 25px 50px -12px hsl(0 0% 0% / 0.9);
+    --shadow-red: 0 0 60px hsl(0 100% 27% / 0.4);
+    --shadow-premium: 0 20px 40px -10px hsl(0 100% 20% / 0.6);
+    --shadow-glass: inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+    --glow-red: 0 0 80px hsl(0 100% 27% / 0.8);
+    --backdrop-blur: blur(20px) saturate(180%);
   }
 }
 
@@ -76,7 +85,7 @@
     font-family: "Inter", "Segoe UI", sans-serif;
   }
 
-  /* Custom utility classes */
+  /* Premium utility classes */
   .bg-gradient-dark {
     background: var(--gradient-dark);
   }
@@ -85,12 +94,41 @@
     background: var(--gradient-red);
   }
 
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .bg-gradient-premium {
+    background: var(--gradient-premium);
+  }
+
+  .bg-gradient-glass {
+    background: var(--gradient-glass);
+    backdrop-filter: var(--backdrop-blur);
+  }
+
   .shadow-dark {
     box-shadow: var(--shadow-dark);
   }
 
   .shadow-red {
     box-shadow: var(--shadow-red);
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .shadow-glass {
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glow-red {
+    box-shadow: var(--glow-red);
   }
 
   .transition-smooth {
@@ -111,11 +149,40 @@
     box-shadow: 0 0 30px hsl(0 100% 27% / 0.6);
   }
 
-  /* Card enhancements */
+  /* Premium card effects */
   .glass-effect {
-    background: linear-gradient(135deg, hsl(0 0% 15% / 0.8), hsl(0 0% 5% / 0.9));
-    backdrop-filter: blur(10px);
-    border: 1px solid hsl(0 0% 30% / 0.3);
+    background: var(--gradient-card);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid hsl(0 0% 30% / 0.2);
+    position: relative;
+  }
+
+  .glass-effect::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-glass);
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .premium-border {
+    position: relative;
+  }
+
+  .premium-border::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: var(--gradient-border);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .premium-border:hover::after {
+    opacity: 1;
   }
 }
 
